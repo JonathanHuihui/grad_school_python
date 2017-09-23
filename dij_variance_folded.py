@@ -1,4 +1,4 @@
-# Plot the Rij between all amino acids |i-j| apart as a function of |i-j|
+# Plot the variance in Rij between all amino acids |i-j| apart as a function of |i-j|
 # Set the directory
 import os
 os.chdir('/Users/jonathanhuihui/Documents/results_and_spreadsheets/resurrected_trx/distance_variance_folded/')
