@@ -1,5 +1,6 @@
 # Mutate residues in a protein using pymol
-
+# Modified version of a script that can be found:
+# https://sourceforge.net/p/pymol/mailman/message/31102387/
 
 # USAGE:
 # pymol -c mutate_pdb.py -- <PDBFILE> <NAME> <RESIDUE NUMBER> <TARGET MUTATION>
