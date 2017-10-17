@@ -1,4 +1,10 @@
 # Mutate residues in a protein using pymol
+
+
+# USAGE:
+# pymol -c mutate_pdb.py -- <PDBFILE> <NAME> <RESIDUE NUMBER> <TARGET MUTATION>
+
+
 # Import the libraries
 import sys
 # For some reason the path won't save
@@ -11,12 +17,13 @@ __main__.pymol_argv = ['pymol','-c'] # Pymol: supress GUI
 #os.chdir('/Users/jonathanhuihui/Documents/resurrected_trx/pdbs')
 
 
+# Import pymol and initialize
 from pymol import cmd
 import pymol
 pymol.finish_launching()
 
 
-
+# Take values from command line
 pdb = sys.argv[1]
 name = sys.argv[2]
 selection = sys.argv[3]
@@ -32,6 +39,8 @@ print "mutant: " + mutant
 
 pymol.cmd.reinitialize()
 
+
+# Run the wizard and save
 cmd.load(pdb)
 
 cmd.wizard("mutagenesis")
@@ -40,6 +49,7 @@ cmd.get_wizard().do_select(str(selection))
 cmd.get_wizard().set_mode(str(mutant))
 cmd.get_wizard().apply()
 cmd.set_wizard()
+# Save as <Protein Name>_<Target Residue><Residue Index>.pdb
 cmd.save( str(name) + '_' + str(mut) + '.pdb', name)
 
 
